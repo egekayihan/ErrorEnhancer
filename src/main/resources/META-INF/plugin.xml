@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>org.example.ErrorEnhancer</id>
+    <name>Error Enhancer</name>
+    <vendor>Ege</vendor>
+
+    <description> Plugin for error message enhancement that will be used in Android Studio</description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="ShowErrorMessage" class="ShowErrorMessage" text="Show Error Message"
+                description="Show error message">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift B"/>
+        </action>
+    </actions>
+
+    <projectListeners>
+        <listener
+                class="ShowErrorMessage"
+                topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
+    </projectListeners>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Error Enhancer Notification"
+                           displayType="BALLOON"
+                           key="notification.group.key"/>
+    </extensions>
+
+</idea-plugin>
