@@ -32,7 +32,15 @@ object LogFactory {
         var errorType = ErrorType.UNDEFINED
         for (model in list){
             if (currLog.contains(model.errorName)){
-                errorType = model
+//                if(currLog.subSequence(0,currLog.indexOf(list[1].errorName)).contains("Array"))
+//                    errorType = list[0]
+//
+//                else
+//                    errorType = list[1]
+//
+//                break
+
+               errorType = model
             }
         }
         return errorType
